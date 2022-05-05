@@ -2,29 +2,56 @@
 
 struct Vector2D
 {
-public:
-	Vector2D() : x(0), y(0) {};
+	Vector2D() : x_(0), y_(0) {};
+	
+	Vector2D(float x, float y) : x_(x), y_(y) {};
 
-	Vector2D(const Vector2D& vector)
+	Vector2D(const Vector2D& other)
+		: x_(other.x_),
+		  y_(other.y_)
 	{
-		x = vector.x;
-		y = vector.y;
 	}
 
-	Vector2D(float x, float y) : x(x), y(y) {};
+	Vector2D(Vector2D&& other) noexcept
+		: x_(other.x_),
+		  y_(other.y_)
+	{
+	}
+
+	Vector2D& operator=(const Vector2D& other)
+	{
+		if (this == &other)
+			return *this;
+		x_ = other.x_;
+		y_ = other.y_;
+		return *this;
+	}
+
+	Vector2D& operator=(Vector2D&& other) noexcept
+	{
+		if (this == &other)
+			return *this;
+		x_ = other.x_;
+		y_ = other.y_;
+		return *this;
+	}
+
 	~Vector2D() {}
 
-	bool IntCmp(const Vector2D& vec) { return int(x) == int(vec.x) && int(y) == int(vec.y); }
+	bool IntCmp(const Vector2D& vec) { return int(x_) == int(vec.x_) && int(y_) == int(vec.y_); }
 	// Operator overloading
-	Vector2D operator + (const Vector2D& other);
-	Vector2D operator * (const Vector2D& other);
-	Vector2D operator * (const float other);
-	Vector2D operator / (const float other);
-	Vector2D operator - (const Vector2D& other);
+	Vector2D operator + (const Vector2D& other) const {return {other.x_+x_,other.y_+y_};}
+	Vector2D operator * (const float scale) const {return {x_*scale,y_*scale};}
+	Vector2D operator / (const float scale) const {return {x_/scale,y_/scale};}
+	Vector2D operator - (const Vector2D& other)  const {return {x_-other.x_,y_-other.y_};};
 
-	float length();
+	
 
-	float x;
-	float y;
+	float Length();
+
+private:
+
+	float x_;
+	float y_;
 };
 
