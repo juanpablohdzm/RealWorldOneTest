@@ -6,7 +6,7 @@
 class RegularAlien : public Alien
 {
 public:
-    RegularAlien()
+    RegularAlien() : Alien()
     {
         velocity_ = 0.5f;
         sprite_ = RS_Alien;

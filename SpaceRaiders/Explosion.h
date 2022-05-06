@@ -6,12 +6,13 @@ class Explosion : public GameObject
 {
 public:
     // Explosion lasts 5 ticks before it dissappears
-    int timer = 5;
-    Explosion()
+    Explosion() : GameObject(), timer_(5)
     {
         sprite_ = RS_Explosion;
     }
     
     void Update() override;
-   
+
+private:
+    int timer_;
 };

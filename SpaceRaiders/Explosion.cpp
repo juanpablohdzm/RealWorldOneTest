@@ -4,8 +4,8 @@
 
 void Explosion::Update()
 {
-    timer--;
-    if (!timer)
+    timer_--;
+    if (!timer_)
     {
         PlayField::GetInstance()->RemoveObject(this);
     }

@@ -6,7 +6,7 @@
 class AlienLaser : public Laser
 {
 public:
-    AlienLaser()
+    AlienLaser() : Laser()
     {
         sprite_ = RS_AlienLaser;
     }

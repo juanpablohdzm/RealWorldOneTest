@@ -18,7 +18,9 @@ void RegularAlien::Update()
 void RegularAlien::Transform()
 {
     auto world = PlayField::GetInstance();
-    std::shared_ptr<GameObject> enhancedAlien = std::make_shared<EnhancedAlien>();
+    auto enhancedAlien = std::make_shared<EnhancedAlien>();
+    enhancedAlien->SetPos(pos_);
+    enhancedAlien->GetHealthComponent()->SetHealth(GetHealthComponent()->GetHealth());
     world->AddObject(enhancedAlien);
     world->RemoveObject(this);
 }

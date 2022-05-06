@@ -5,7 +5,7 @@
 class EnhancedAlien : public Alien
 {
 public:
-    EnhancedAlien()
+    EnhancedAlien() : Alien()
     {
         velocity_ = 1.0f;
         sprite_ = RS_BetterAlien;

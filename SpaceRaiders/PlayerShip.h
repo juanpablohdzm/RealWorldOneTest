@@ -5,7 +5,7 @@
 class PlayerShip : public GameObject
 {
 public:
-    PlayerShip()
+    PlayerShip() : GameObject()
     {
         sprite_ = RS_Player;
     }

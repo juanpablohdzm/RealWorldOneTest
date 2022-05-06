@@ -14,20 +14,20 @@ typedef std::uniform_real_distribution<float> floatRand;
 class Alien : public GameObject
 {
 public:
-    Alien() : energy_(0.0f), healtComp_(1.0)
+    Alien() : GameObject(), direction_(1.0f), velocity_(0.0f), energy_(0.0f), healthComp_(1.0)
     {
         rGen_.seed(1);
     }
 
     void Update() override;
 
-    HealthComponent* GetHealthComponent() {return &healtComp_;}
+    HealthComponent* GetHealthComponent() {return &healthComp_;}
 
 protected:
-    float direction_ = 1.f;
+    float direction_;
     float velocity_;
     float energy_;
-    HealthComponent healtComp_;
+    HealthComponent healthComp_;
     std::default_random_engine rGen_;
     
 };

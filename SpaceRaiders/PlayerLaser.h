@@ -5,7 +5,7 @@
 class PlayerLaser : public Laser
 {
 public:
-    PlayerLaser()
+    PlayerLaser() : Laser()
     {
         sprite_ = RS_PlayerLaser;
     }

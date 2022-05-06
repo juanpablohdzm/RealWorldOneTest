@@ -8,7 +8,7 @@
 
 void Laser::Collision(GameObject* obj)
 {
-    std::shared_ptr<GameObject> no = std::make_shared<Explosion>();
-    no->SetPos(pos_);
-    PlayField::GetInstance()->AddObject(no);
+    std::shared_ptr<GameObject> explosion = std::make_shared<Explosion>();
+    explosion->SetPos(pos_);
+    PlayField::GetInstance()->AddObject(explosion);
 }
