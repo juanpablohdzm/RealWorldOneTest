@@ -19,7 +19,7 @@ void setCursorPosition(int x, int y)
 Renderer::Renderer(const Vector2D& bounds)
 : renderBounds(bounds)
 {
-	canvasSize = (int)(bounds.x_ * bounds.y_);
+	canvasSize = (int)(bounds.x() * bounds.y());
 	disp[0].canvas = new unsigned char[canvasSize];
 	disp[1].canvas = new unsigned char[canvasSize];
 }
@@ -38,12 +38,12 @@ void Renderer::Update(const RenderItemList& RenderList)
 	for (auto ri : RenderList)
 	{
 		// std::cout << "object drawn" << std::endl;
-		int x = int(ri.pos.x_);
-		int y = int(ri.pos.y_);
+		int x = int(ri.pos.x());
+		int y = int(ri.pos.y());
 
-		if (x >= 0 && x < renderBounds.x_ && y >= 0 && y < renderBounds.y_)
+		if (x >= 0 && x < renderBounds.x() && y >= 0 && y < renderBounds.y())
 		{
-			*CurCanvas((int)ri.pos.x_, + (int)ri.pos.y_) = ri.sprite;
+			*CurCanvas((int)ri.pos.x(), + (int)ri.pos.y()) = ri.sprite;
 		}
 	}
 
@@ -65,9 +65,9 @@ void Renderer::DrawCanvas()
 	//if (gameMode)
 	//	std::cout << "Score: " << gameMode->GetScore() << std::endl;
 
-	for (int y = 0; y < renderBounds.y_; y++)
+	for (int y = 0; y < renderBounds.y(); y++)
 	{
-		for (int x = 0; x < renderBounds.x_; x++)
+		for (int x = 0; x < renderBounds.x(); x++)
 		{
 			setCursorPosition(x, y);
 			std::cout << *CurCanvas(x,y);

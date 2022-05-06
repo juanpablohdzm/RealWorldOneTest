@@ -1,8 +1,11 @@
 ﻿#include "stdafx.h"
 #include "Alien.h"
 
+#include "AlienLaser.h"
 #include "Explosion.h"
 #include "PlayField.h"
+
+
 
 void Alien::Update()
 {
@@ -32,11 +35,11 @@ void Alien::Update()
     }
 
     floatRand fireRate(0, 1);
-    if (fireRate(rGen) < 0.5 && world.AlienLasers>0)
+    if (fireRate(rGen_) < 0.5 && world->GetAlienLasersAmount()>0)
     {
         //Spawn laser
-        GameObject& newLaser = *(new AlienLaser);
-        newLaser.pos = pos;
-        world.SpawnLaser(&newLaser);
+        std::shared_ptr<GameObject> newLaser = std::make_shared<AlienLaser>();
+        newLaser->SetPos(pos_);
+        world->SpawnLaser(newLaser);
     }
 }

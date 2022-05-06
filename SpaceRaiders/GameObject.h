@@ -12,11 +12,6 @@ public:
 
     virtual void Move(Vector2D delta);
 
-    void SetObjType(const std::string& objType)
-    {
-        objType_ = objType;
-    }
-
     void SetSprite(unsigned char sprite)
     {
         this->sprite_ = sprite;
@@ -25,16 +20,6 @@ public:
     void SetPos(const Vector2D& pos)
     {
         this->pos_ = pos;
-    }
-
-    const char* GetObjType_CStr() const
-    {
-        return objType_.c_str();
-    }
-
-    std::string GetObjType() const
-    {
-        return objType_;
     }
 
     unsigned char GetSprite() const
@@ -48,7 +33,6 @@ public:
     }
 
 protected:
-    std::string objType_{};
     unsigned char sprite_;
     Vector2D pos_;
     

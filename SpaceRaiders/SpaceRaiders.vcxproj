@@ -152,6 +152,7 @@
     <ClInclude Include="IInput.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="PlayerLaser.h" />
+    <ClInclude Include="PlayerShip.h" />
     <ClInclude Include="PlayField.h" />
     <ClInclude Include="RegularAlien.h" />
     <ClInclude Include="Renderer.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="PlayerLaser.cpp" />
+    <ClCompile Include="PlayerShip.cpp" />
     <ClCompile Include="PlayField.cpp" />
     <ClCompile Include="RegularAlien.cpp" />
     <ClCompile Include="Renderer.cpp" />

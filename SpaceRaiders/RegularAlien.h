@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 #include "Alien.h"
 #include "Renderer.h"
 
@@ -12,4 +13,9 @@ public:
     }
 
     void Update() override;
+
+private:
+
+    void Transform();
+    
 };

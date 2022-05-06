@@ -1,24 +1,33 @@
 ﻿#include "stdafx.h"
 #include "PlayField.h"
+
+#include <iostream>
+
+#include "AlienLaser.h"
 #include "GameObject.h"
+#include "PlayerLaser.h"
+#include "PlayerShip.h"
 
 void PlayField::Update()
 {
     // Update list of active objects in the world
+    int index = 0;
     for (const GameObjSharedPtr it : gameObjects_)
     {
+        std::cout << index++ << std::endl;
         if(it != nullptr)
-            it->Update(*this);
+            it->Update();
     }
 }
 
 GameObjSharedPtr PlayField::GetPlayerObject()
 {
-    if(player_)
-        return player_;
-    
     auto it = std::find_if(gameObjects_.begin(), gameObjects_.end(),
-        [](GameObjSharedPtr in) { return (strcmp(in->GetObjType_CStr(),"ot_PlayerShip")==0); });
+        [](GameObjSharedPtr in)
+        {
+            PlayerShip* playerShip = dynamic_cast<PlayerShip*>(in.get());
+            return playerShip != nullptr;
+        });
     if (it != gameObjects_.end())
         return (*it);
 
@@ -28,9 +37,9 @@ GameObjSharedPtr PlayField::GetPlayerObject()
 void PlayField::SpawnLaser(GameObjSharedPtr obj)
 {
     
-    if (strcmp(obj->GetObjType_CStr(), "ot_AlienLaser")==0)
+    if (dynamic_cast<AlienLaser*>(obj.get())!= nullptr)
         alienLasers_--;
-    else if (strcmp(obj->GetObjType_CStr(), "ot_PlayerLaser")==0)
+    else if (dynamic_cast<PlayerLaser*>(obj.get())!= nullptr)
         playerLasers_--;
     AddObject(obj);
     
@@ -38,9 +47,9 @@ void PlayField::SpawnLaser(GameObjSharedPtr obj)
 
 void PlayField::DespawnLaser(GameObject* obj)
 {
-    if (strcmp(obj->GetObjType_CStr(), "ot_AlienLaser")==0)
+    if (dynamic_cast<AlienLaser*>(obj)!= nullptr)
         alienLasers_++;
-    else if (strcmp(obj->GetObjType_CStr(), "ot_PlayerLaser")==0)
+    else if (dynamic_cast<PlayerLaser*>(obj)!= nullptr)
         playerLasers_++;
     RemoveObject(obj);
 }
@@ -53,15 +62,18 @@ void PlayField::AddObject(GameObjSharedPtr obj)
 
 void PlayField::RemoveObject(GameObject* obj)
 {
-    gameObjects_.erase(std::remove(gameObjects_.begin(),gameObjects_.end(),obj),gameObjects_.end());
+    gameObjects_.erase(std::remove_if(gameObjects_.begin(),gameObjects_.end(),[obj](const GameObjSharedPtr& other)->bool
+    {
+       return other.get() == obj;
+    }),gameObjects_.end());
 }
 
-std::shared_ptr<PlayField> PlayField::instance_ = nullptr;
+PlayField* PlayField::instance_ = nullptr;
 
-std::shared_ptr<PlayField> PlayField::GetInstance()
+PlayField* PlayField::GetInstance()
 {
     if(instance_ == nullptr)
-        instance_ = std::make_shared<PlayField>();
+        instance_ = new PlayField();
     return instance_;
 }
 

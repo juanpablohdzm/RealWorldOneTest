@@ -9,7 +9,6 @@ public:
     int timer = 5;
     Explosion()
     {
-        objType_ ="ot_Explosion";
         sprite_ = RS_Explosion;
     }
     

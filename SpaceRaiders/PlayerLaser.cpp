@@ -1,6 +1,7 @@
 ﻿#include "stdafx.h"
 #include "PlayerLaser.h"
 
+#include "Alien.h"
 #include "PlayField.h"
 
 void PlayerLaser::Update()
@@ -11,13 +12,15 @@ void PlayerLaser::Update()
     auto world = PlayField::GetInstance();
     for (auto it : world->GetGameObjects())
     {
-        if (strcmp(it->GetObjType_CStr(),"ot_AlienShip")==0 && it->GetPosition().IntCmp(pos_))
+        if (dynamic_cast<Alien*>(it.get()) != nullptr && it->GetPosition().IntCmp(pos_))
         {
             deleted = true;
             //Spawn explosion, kill the alien that we hit
             //ToDo - add scoring
-            Collision(it.get());
-            if (it->DecreaseHealth())
+            Alien* alien = static_cast<Alien*>(it.get());
+            Collision(alien);
+            alien->GetHealthComponent()->Damage(1);
+            if (alien->GetHealthComponent()->GetHealth() == 0)
                 world->RemoveObject(it.get());
         }
     }

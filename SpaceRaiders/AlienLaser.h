@@ -8,7 +8,6 @@ class AlienLaser : public Laser
 public:
     AlienLaser()
     {
-        objType_ = "ot_AlienLaser";
         sprite_ = RS_AlienLaser;
     }
 

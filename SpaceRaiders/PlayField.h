@@ -1,30 +1,20 @@
 ﻿#pragma once
 #include <memory>
+#include <random>
 #include <vector>
 #include "Vector2D.h"
 
 
 class GameObject;
-class IInput;
+struct IInput;
 
 typedef  std::shared_ptr<GameObject> GameObjSharedPtr;
 
 class PlayField
 {
 private:
-    std::vector<GameObjSharedPtr> gameObjects_;
-    GameObjSharedPtr player_;
-    IInput* cotrollerInput_ = nullptr;
-    Vector2D bounds_;
-    int alienLasers_ = 10;
-    int playerLasers_ = 4;
-
-    static std::shared_ptr<PlayField> instance_;
-
     PlayField() = default;
-
 public:
-
     PlayField(PlayField& other) = delete;
     PlayField(PlayField&& other) = delete;
 
@@ -36,10 +26,16 @@ public:
         bounds_ = iBounds;
     };
 
-    static std::shared_ptr<PlayField> GetInstance();
+    static PlayField* GetInstance();
     const std::vector<GameObjSharedPtr>& GetGameObjects() { return gameObjects_; }
     Vector2D GetBounds()const {return bounds_;}
     GameObjSharedPtr GetPlayerObject();
+
+    int GetAlienLasersAmount() const{return alienLasers_;}
+    int GetPlayerLasersAmount() const{return playerLasers_;}
+    IInput* GetControllerInput() const{return controllerInput_;}
+
+    void SetControllerInput(IInput* controller){controllerInput_ = controller;}
 
     void Update();
     
@@ -49,6 +45,16 @@ public:
     void AddObject(GameObjSharedPtr obj);
     void RemoveObject(GameObject* obj);
 
+    ~PlayField(){ delete instance_;}
+    
+private:
+    std::vector<GameObjSharedPtr> gameObjects_;
+    IInput* controllerInput_ = nullptr;
+    Vector2D bounds_;
+    int alienLasers_ = 10;
+    int playerLasers_ = 4;
+
+    static PlayField* instance_;
 };
 
 
