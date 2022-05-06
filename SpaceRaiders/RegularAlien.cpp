@@ -2,7 +2,7 @@
 #include "RegularAlien.h"
 
 #include "EnhancedAlien.h"
-#include "PlayField.h"
+#include "GameManager.h"
 
 
 void RegularAlien::Update()
@@ -17,7 +17,7 @@ void RegularAlien::Update()
 
 void RegularAlien::Transform()
 {
-    auto world = PlayField::GetInstance();
+    auto world = GameManager::GetInstance();
     auto enhancedAlien = std::make_shared<EnhancedAlien>();
     enhancedAlien->SetPos(pos_);
     enhancedAlien->GetHealthComponent()->SetHealth(GetHealthComponent()->GetHealth());

@@ -2,14 +2,15 @@
 #include "PlayerLaser.h"
 
 #include "Alien.h"
-#include "PlayField.h"
+#include "GameManager.h"
+#include "PlayerShip.h"
 
 void PlayerLaser::Update()
 {
     bool deleted = false;
     Move({0.0f,-1.0f});
 
-    auto world = PlayField::GetInstance();
+    auto world = GameManager::GetInstance();
     for (auto it : world->GetGameObjects())
     {
         if (dynamic_cast<Alien*>(it.get()) != nullptr && it->GetPosition().IntCmp(pos_))
@@ -32,6 +33,6 @@ void PlayerLaser::Update()
     
     if (deleted)
     {
-        world->DespawnLaser(this);
+        player_->DespawnLaser(this);
     }
 }

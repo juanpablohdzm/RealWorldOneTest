@@ -1,7 +1,8 @@
 ﻿#include "stdafx.h"
 #include "AlienLaser.h"
 
-#include "Explosion.h"
+#include "Alien.h"
+#include "GameManager.h"
 #include "PlayField.h"
 
 void AlienLaser::Update()
@@ -10,7 +11,7 @@ void AlienLaser::Update()
 
     Move({0.0f,1.0f});
 
-    auto world = PlayField::GetInstance();
+    auto world = GameManager::GetInstance();
     std::shared_ptr<GameObject> player = world->GetPlayerObject();
     if (player && pos_.IntCmp(player->GetPosition()))
     {
@@ -18,19 +19,19 @@ void AlienLaser::Update()
         Collision(player.get());
     }
 
-    if (pos_.y() > world->GetBounds().y())
+    if (pos_.y() > PlayField::GetInstance()->GetBounds().y())
     {
         deleted = true;
     }
     
     if (deleted)
     {
-        world->DespawnLaser(this);
+        alien_->DespawnLaser(this);
     }
 }
 
 void AlienLaser::Collision(GameObject* obj)
 {
     Laser::Collision(obj);
-    PlayField::GetInstance()->RemoveObject(obj);
+    GameManager::GetInstance()->RemoveObject(obj);
 }

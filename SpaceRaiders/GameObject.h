@@ -2,7 +2,7 @@
 #include <string>
 #include "Vector2D.h"
 
-class PlayField;
+class GameManager;
 
 class GameObject
 {

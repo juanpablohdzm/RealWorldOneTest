@@ -4,11 +4,11 @@
 #include <memory>
 
 #include "Explosion.h"
-#include "PlayField.h"
+#include "GameManager.h"
 
 void Laser::Collision(GameObject* obj)
 {
     std::shared_ptr<GameObject> explosion = std::make_shared<Explosion>();
     explosion->SetPos(pos_);
-    PlayField::GetInstance()->AddObject(explosion);
+    GameManager::GetInstance()->AddObject(explosion);
 }

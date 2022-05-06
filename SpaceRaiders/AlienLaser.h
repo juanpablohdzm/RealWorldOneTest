@@ -3,10 +3,12 @@
 #include "Laser.h"
 #include "Renderer.h"
 
+class Alien;
+
 class AlienLaser : public Laser
 {
 public:
-    AlienLaser() : Laser()
+    AlienLaser(Alien* alien) : Laser(), alien_(alien)
     {
         sprite_ = RS_AlienLaser;
     }
@@ -14,6 +16,9 @@ public:
     void Update() override;
 
 protected:
-    void Collision(GameObject* obj) override;
     
+    void Collision(GameObject* obj) override;
+
+private:
+    Alien* alien_;
 };

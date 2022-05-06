@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <random>
 
+#include "AlienLaser.h"
 #include "GameObject.h"
 #include "HealthComponent.h"
 
@@ -22,6 +23,13 @@ public:
     void Update() override;
 
     HealthComponent* GetHealthComponent() {return &healthComp_;}
+    
+    void DespawnLaser(AlienLaser* laser);
+
+protected:
+    virtual void SpawnLaser();
+
+    static int laserAvailableAmount;
 
 protected:
     float direction_;
