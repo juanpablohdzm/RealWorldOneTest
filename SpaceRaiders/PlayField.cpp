@@ -11,19 +11,18 @@
 void PlayField::Update()
 {
     // Update list of active objects in the world
-    int index = 0;
-    for (const GameObjSharedPtr it : gameObjects_)
+    auto temp = gameObjects_;
+    for (const std::shared_ptr<GameObject>& it : temp)
     {
-        std::cout << index++ << std::endl;
         if(it != nullptr)
             it->Update();
     }
 }
 
-GameObjSharedPtr PlayField::GetPlayerObject()
+std::shared_ptr<GameObject> PlayField::GetPlayerObject()
 {
     auto it = std::find_if(gameObjects_.begin(), gameObjects_.end(),
-        [](GameObjSharedPtr in)
+        [](std::shared_ptr<GameObject> in)
         {
             PlayerShip* playerShip = dynamic_cast<PlayerShip*>(in.get());
             return playerShip != nullptr;
@@ -34,7 +33,7 @@ GameObjSharedPtr PlayField::GetPlayerObject()
     return nullptr;
 }
 
-void PlayField::SpawnLaser(GameObjSharedPtr obj)
+void PlayField::SpawnLaser(std::shared_ptr<GameObject> obj)
 {
     
     if (dynamic_cast<AlienLaser*>(obj.get())!= nullptr)
@@ -54,7 +53,7 @@ void PlayField::DespawnLaser(GameObject* obj)
     RemoveObject(obj);
 }
 
-void PlayField::AddObject(GameObjSharedPtr obj)
+void PlayField::AddObject(std::shared_ptr<GameObject> obj)
 {
     gameObjects_.push_back(obj);
 }
@@ -62,7 +61,7 @@ void PlayField::AddObject(GameObjSharedPtr obj)
 
 void PlayField::RemoveObject(GameObject* obj)
 {
-    gameObjects_.erase(std::remove_if(gameObjects_.begin(),gameObjects_.end(),[obj](const GameObjSharedPtr& other)->bool
+    gameObjects_.erase(std::remove_if(gameObjects_.begin(),gameObjects_.end(),[obj](const std::shared_ptr<GameObject>& other)->bool
     {
        return other.get() == obj;
     }),gameObjects_.end());

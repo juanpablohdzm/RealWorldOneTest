@@ -8,8 +8,6 @@
 class GameObject;
 struct IInput;
 
-typedef  std::shared_ptr<GameObject> GameObjSharedPtr;
-
 class PlayField
 {
 private:
@@ -27,9 +25,9 @@ public:
     };
 
     static PlayField* GetInstance();
-    const std::vector<GameObjSharedPtr>& GetGameObjects() { return gameObjects_; }
+    const std::vector<std::shared_ptr<GameObject>>& GetGameObjects() { return gameObjects_; }
     Vector2D GetBounds()const {return bounds_;}
-    GameObjSharedPtr GetPlayerObject();
+    std::shared_ptr<GameObject> GetPlayerObject();
 
     int GetAlienLasersAmount() const{return alienLasers_;}
     int GetPlayerLasersAmount() const{return playerLasers_;}
@@ -39,16 +37,16 @@ public:
 
     void Update();
     
-    void SpawnLaser(GameObjSharedPtr obj);
+    void SpawnLaser(std::shared_ptr<GameObject> obj);
     void DespawnLaser(GameObject* obj);
     
-    void AddObject(GameObjSharedPtr obj);
+    void AddObject(std::shared_ptr<GameObject> obj);
     void RemoveObject(GameObject* obj);
 
     ~PlayField(){ delete instance_;}
     
 private:
-    std::vector<GameObjSharedPtr> gameObjects_;
+    std::vector<std::shared_ptr<GameObject>> gameObjects_;
     IInput* controllerInput_ = nullptr;
     Vector2D bounds_;
     int alienLasers_ = 10;
