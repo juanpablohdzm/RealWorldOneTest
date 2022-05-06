@@ -3,8 +3,7 @@
 
 class Laser : public GameObject
 {
-protected:
-    virtual void Move(Vector2D delta);
+protected: 
     virtual void Collision(GameObject* obj);
 
 };

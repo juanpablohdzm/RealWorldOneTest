@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Alien.h" />
     <ClInclude Include="AlienLaser.h" />
+    <ClInclude Include="EnhancedAlien.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="HealthComponent.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="Laser.h" />
     <ClInclude Include="PlayerLaser.h" />
     <ClInclude Include="PlayField.h" />
+    <ClInclude Include="RegularAlien.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RndInput.h" />
     <ClInclude Include="stdafx.h" />
@@ -161,12 +163,14 @@
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="AlienLaser.cpp" />
+    <ClCompile Include="EnhancedAlien.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="PlayerLaser.cpp" />
     <ClCompile Include="PlayField.cpp" />
+    <ClCompile Include="RegularAlien.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RndInput.cpp" />
     <ClCompile Include="SpaceRaiders.cpp" />

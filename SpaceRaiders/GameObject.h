@@ -10,6 +10,8 @@ public:
     virtual ~GameObject() = default;
     virtual void Update()  = 0;
 
+    virtual void Move(Vector2D delta);
+
     void SetObjType(const std::string& objType)
     {
         objType_ = objType;
@@ -46,7 +48,7 @@ public:
     }
 
 protected:
-    std::string objType_ = nullptr;
+    std::string objType_{};
     unsigned char sprite_;
     Vector2D pos_;
     
