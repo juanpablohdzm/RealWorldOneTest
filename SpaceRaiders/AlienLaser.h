@@ -12,7 +12,7 @@ public:
         sprite_ = RS_AlienLaser;
     }
 
-    void Update(PlayField& world) override;
+    void Update() override;
 
 protected:
     void Collision(GameObject* obj) override;

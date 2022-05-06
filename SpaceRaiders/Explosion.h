@@ -13,6 +13,6 @@ public:
         sprite_ = RS_Explosion;
     }
     
-    void Update(PlayField& world) override;
+    void Update() override;
    
 };

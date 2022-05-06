@@ -2,12 +2,11 @@
 #include "Explosion.h"
 #include "PlayField.h"
 
-void Explosion::Update(PlayField& world)
+void Explosion::Update()
 {
     timer--;
     if (!timer)
     {
-        world.RemoveObject(this);
-        delete this;
+        PlayField::GetInstance()->RemoveObject(this);
     }
 }

@@ -8,7 +8,7 @@ class GameObject
 {
 public:
     virtual ~GameObject() = default;
-    virtual void Update(PlayField& world)  = 0;
+    virtual void Update()  = 0;
 
     void SetObjType(const std::string& objType)
     {

@@ -143,12 +143,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Alien.h" />
     <ClInclude Include="AlienLaser.h" />
     <ClInclude Include="Explosion.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="HealthComponent.h" />
     <ClInclude Include="IInput.h" />
     <ClInclude Include="Laser.h" />
+    <ClInclude Include="PlayerLaser.h" />
     <ClInclude Include="PlayField.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="RndInput.h" />
@@ -157,11 +159,13 @@
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
     <ClCompile Include="AlienLaser.cpp" />
     <ClCompile Include="Explosion.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="HealthComponent.cpp" />
     <ClCompile Include="Laser.cpp" />
+    <ClCompile Include="PlayerLaser.cpp" />
     <ClCompile Include="PlayField.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="RndInput.cpp" />
