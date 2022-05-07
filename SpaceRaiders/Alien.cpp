@@ -24,7 +24,7 @@ void Alien::Update()
     {
         // kill player
         std::shared_ptr<GameObject> player = world->GetPlayerObject();
-        if (player && pos_.IntCmp(player->GetPosition()))
+        if (player && pos_ == player->GetPosition())
         {
             //Spawn explosion
             std::shared_ptr<GameObject> no = std::make_shared<Explosion>();

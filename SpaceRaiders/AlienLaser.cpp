@@ -5,29 +5,31 @@
 #include "GameManager.h"
 #include "PlayField.h"
 
+
+
 void AlienLaser::Update()
 {
-    bool deleted = false;
-
     Move({0.0f,1.0f});
 
     auto world = GameManager::GetInstance();
     std::shared_ptr<GameObject> player = world->GetPlayerObject();
-    if (player && pos_.IntCmp(player->GetPosition()))
+    if (player && pos_ == player->GetPosition())
     {
-        deleted = true;
         Collision(player.get());
+        DestroyLaser();
+        return;
     }
 
     if (pos_.y() > PlayField::GetInstance()->GetBounds().y())
     {
-        deleted = true;
+        DestroyLaser();
+        return;
     }
-    
-    if (deleted)
-    {
-        alien_->DespawnLaser(this);
-    }
+}
+
+void AlienLaser::DestroyLaser()
+{
+    alien_->DespawnLaser(this);
 }
 
 void AlienLaser::Collision(GameObject* obj)

@@ -14,7 +14,7 @@ public:
 
     void Update() override;
 
-
+    void DestroyLaser() override;
 private:
     PlayerShip* player_;
 };

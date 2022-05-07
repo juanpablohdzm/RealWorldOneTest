@@ -13,6 +13,8 @@ public:
         sprite_ = RS_AlienLaser;
     }
 
+    void DestroyLaser() override;
+
     void Update() override;
 
 protected:

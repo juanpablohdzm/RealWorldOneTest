@@ -3,9 +3,7 @@
 
 #include <iostream>
 
-#include "AlienLaser.h"
 #include "GameObject.h"
-#include "PlayerLaser.h"
 #include "PlayerShip.h"
 
 void GameManager::Update()
