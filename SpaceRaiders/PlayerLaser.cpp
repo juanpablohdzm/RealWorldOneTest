@@ -27,7 +27,10 @@ void PlayerLaser::Update()
                 Collision(alien);
                 alien->GetHealthComponent()->Damage(1);
                 if (alien->GetHealthComponent()->GetHealth() == 0)
+                {
                     world->RemoveObject(it.get());
+                    world->AddScore(alien->GetWorthPoints());
+                }
                 DestroyLaser();
                 return;
             }

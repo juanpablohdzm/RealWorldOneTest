@@ -8,6 +8,8 @@
 //#include "GameMode.h"
 #include <Windows.h>
 
+#include "GameManager.h"
+
 void setCursorPosition(int x, int y)
 {
 	static const HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -60,10 +62,9 @@ void Renderer::FillCanvas(unsigned char sprite)
 
 void Renderer::DrawCanvas()
 {
-	//ToDo: Scoring output/tracking
-	//GameMode* gameMode = world.GetGameMode();
-	//if (gameMode)
-	//	std::cout << "Score: " << gameMode->GetScore() << std::endl;
+	const auto gameMode = GameManager::GetInstance();
+	if (gameMode)
+		std::cout << "Score: " << gameMode->GetScore() << std::endl;
 
 	for (int y = 0; y < renderBounds.y(); y++)
 	{

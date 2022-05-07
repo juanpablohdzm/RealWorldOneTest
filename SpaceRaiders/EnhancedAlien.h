@@ -9,5 +9,6 @@ public:
     {
         velocity_ = 1.0f;
         sprite_ = RS_BetterAlien;
+        points_ = 20;
     }
 };
