@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include <string>
+
+#include "HealthComponent.h"
 #include "Vector2D.h"
 
 class GameManager;
@@ -21,8 +23,12 @@ public:
 
     Vector2D GetPosition() const{return pos_;}
 
+    HealthComponent* GetHealthComponent() {return &healthComponent_;}
+
 protected:
     unsigned char sprite_;
     Vector2D pos_;
+
+    HealthComponent healthComponent_;
     
 };

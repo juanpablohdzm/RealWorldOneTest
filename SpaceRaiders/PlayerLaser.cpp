@@ -17,35 +17,21 @@ void PlayerLaser::Update()
     for (auto it : world->GetGameObjects())
     {
         if(it.get() == this) continue;
+        if(dynamic_cast<PlayerLaser*>(it.get())) continue;
+        if(dynamic_cast<PlayerShip*>(it.get())) continue;
 
-        if (auto alien  = dynamic_cast<Alien*>(it.get()))
+        if(it->GetPosition() == pos_)
         {
-            if(it->GetPosition() == pos_)
+            Collision(it.get());
+            it->GetHealthComponent()->Damage(1);
+            if (it->GetHealthComponent()->IsDead())
             {
-                //Spawn explosion, kill the alien that we hit
-                //ToDo - add scoring
-                Collision(alien);
-                alien->GetHealthComponent()->Damage(1);
-                if (alien->GetHealthComponent()->GetHealth() == 0)
-                {
-                    world->RemoveObject(it.get());
+                world->RemoveObject(it.get());
+                if(auto alien = dynamic_cast<Alien*>(it.get()))
                     world->AddScore(alien->GetWorthPoints());
-                }
-                DestroyLaser();
-                return;
             }
-        }
-        
-        if(auto laser = dynamic_cast<AlienLaser*>(it.get()))
-        {
-            
-            if(abs(it->GetPosition().x() - pos_.x()) < 0.5f)
-            {
-                Collision(laser);
-                laser->DestroyLaser();
-                DestroyLaser();
-                return;
-            }
+            DestroyLaser();
+            return;
         }
     }
     

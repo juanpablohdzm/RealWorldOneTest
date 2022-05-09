@@ -15,14 +15,13 @@ typedef std::uniform_real_distribution<float> floatRand;
 class Alien : public GameObject
 {
 public:
-    Alien() : GameObject(), direction_(1.0f), velocity_(0.0f), energy_(0.0f), healthComp_(1.0), points_(10)
+    Alien() : GameObject(), points_(10), direction_(1.0f), velocity_(0.0f) , energy_(0.0f)
     {
         rGen_.seed(1);
+        healthComponent_ = HealthComponent(1.0f);
     }
 
     void Update() override;
-
-    HealthComponent* GetHealthComponent() {return &healthComp_;}
     
     void DespawnLaser(AlienLaser* laser);
 
@@ -38,7 +37,6 @@ protected:
     float direction_;
     float velocity_;
     float energy_;
-    HealthComponent healthComp_;
     std::default_random_engine rGen_;
     
 };

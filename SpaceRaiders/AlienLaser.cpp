@@ -16,7 +16,9 @@ void AlienLaser::Update()
     if (player && pos_ == player->GetPosition())
     {
         DestroyLaser();
-        GameManager::GetInstance()->GameOver();
+        player->GetHealthComponent()->Damage(1.0);
+        if(player->GetHealthComponent()->IsDead())
+            GameManager::GetInstance()->GameOver();
         return;
     }
 
