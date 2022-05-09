@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "IInput.h"
 
-class KeyboardInput : IInput
+class KeyboardInput : public IInput
 {
 public:
     bool Left() override;
