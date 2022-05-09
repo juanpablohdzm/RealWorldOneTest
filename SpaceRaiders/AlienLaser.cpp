@@ -15,8 +15,8 @@ void AlienLaser::Update()
     std::shared_ptr<GameObject> player = world->GetPlayerObject();
     if (player && pos_ == player->GetPosition())
     {
-        Collision(player.get());
         DestroyLaser();
+        GameManager::GetInstance()->GameOver();
         return;
     }
 

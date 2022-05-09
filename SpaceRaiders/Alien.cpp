@@ -19,8 +19,13 @@ void Alien::Update()
         Move({0.0f,1.0f});
     }
 		
-    // Border check vertical:
-    if (pos_.y() >= PlayField::GetInstance()->GetBounds().y() - 1 || world->GetPlayerObject()->GetPosition() == pos_)
+    //Border check vertical:
+    if (pos_.y() >= PlayField::GetInstance()->GetBounds().y() - 1)
+    {
+        world->GameOver();
+    }
+
+    if(world->GetPlayerObject() && world->GetPlayerObject()->GetPosition() == pos_)
     {
         world->GameOver();
     }
