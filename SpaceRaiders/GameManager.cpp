@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include "Explosion.h"
 #include "GameObject.h"
 #include "PlayerShip.h"
 
@@ -29,6 +30,21 @@ std::shared_ptr<GameObject> GameManager::GetPlayerObject()
         return (*it);
 
     return nullptr;
+}
+
+void GameManager::GameOver()
+{
+    // kill player
+    std::shared_ptr<GameObject> player = GetPlayerObject();
+    if (player)
+    {
+        //Spawn explosion
+        std::shared_ptr<GameObject> explosion = std::make_shared<Explosion>();
+        explosion->SetPos(player->GetPosition());
+        AddObject(explosion);
+        RemoveObject(player.get());
+        isGameOver_ = true;
+    }
 }
 
 void GameManager::AddObject(std::shared_ptr<GameObject> obj)

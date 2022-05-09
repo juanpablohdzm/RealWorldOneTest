@@ -20,18 +20,9 @@ void Alien::Update()
     }
 		
     // Border check vertical:
-    if (pos_.y() >= PlayField::GetInstance()->GetBounds().y() - 1)
+    if (pos_.y() >= PlayField::GetInstance()->GetBounds().y() - 1 || world->GetPlayerObject()->GetPosition() == pos_)
     {
-        // kill player
-        std::shared_ptr<GameObject> player = world->GetPlayerObject();
-        if (player && pos_ == player->GetPosition())
-        {
-            //Spawn explosion
-            std::shared_ptr<GameObject> no = std::make_shared<Explosion>();
-            no->SetPos(pos_);
-            world->AddObject(no);
-            world->RemoveObject(player.get());
-        }
+        world->GameOver();
     }
 
     floatRand fireRate(0, 1);

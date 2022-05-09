@@ -34,6 +34,9 @@ public:
     void SetControllerInput(IInput* controller){controllerInput_ = controller;}
 
     int GetScore() const{return score_;}
+    bool IsGameOver() const {return isGameOver_;}
+
+    void GameOver();
 
     ~GameManager(){ delete instance_;}
     
@@ -42,6 +45,7 @@ private:
     std::vector<std::shared_ptr<GameObject>> gameObjects_;
     IInput* controllerInput_ = nullptr;
     int score_;
+    bool isGameOver_;
 
     static GameManager* instance_;
 };
