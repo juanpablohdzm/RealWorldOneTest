@@ -20,7 +20,6 @@ void RegularAlien::Transform()
     auto world = GameManager::GetInstance();
     auto enhancedAlien = std::make_shared<EnhancedAlien>();
     enhancedAlien->SetPos(pos_);
-    enhancedAlien->GetHealthComponent()->SetHealth(GetHealthComponent()->GetHealth());
     world->AddObject(enhancedAlien);
     world->RemoveObject(this);
 }
