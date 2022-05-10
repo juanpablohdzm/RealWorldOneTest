@@ -9,7 +9,7 @@ class GameManager;
 class GameObject
 {
 public:
-    GameObject() : sprite_('d'), pos_(0,0){}
+    GameObject() : sprite_('d'), pos_(0,0), healthComponent_(1.0){}
     
     virtual ~GameObject() = default;
     virtual void Update()  = 0;
@@ -23,7 +23,7 @@ public:
 
     Vector2D GetPosition() const{return pos_;}
 
-    HealthComponent* GetHealthComponent() {return &healthComponent_;}
+    [[nodiscard]] HealthComponent* GetHealthComponent() {return &healthComponent_;}
 
 protected:
     unsigned char sprite_;

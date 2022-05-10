@@ -14,7 +14,7 @@ class PowerUp;
 
 void Alien::Update()
 {
-    //Move({direction_*velocity_,0.0f});
+    Move({direction_*velocity_,0.0f});
 
     auto world = GameManager::GetInstance();
     // Border check
@@ -27,12 +27,12 @@ void Alien::Update()
     //Border check vertical:
     if (pos_.y() >= PlayField::GetInstance()->GetBounds().y() - 1)
     {
-       // world->GameOver();
+       world->GameOver();
     }
 
     if(world->GetPlayerObject() && world->GetPlayerObject()->GetPosition() == pos_)
     {
-       // world->GameOver();
+       world->GameOver();
     }
 
     floatRand fireRate(0, 1);

@@ -15,10 +15,9 @@ typedef std::uniform_real_distribution<float> floatRand;
 class Alien : public GameObject
 {
 public:
-    Alien() : GameObject(), points_(10), direction_(1.0f), velocity_(0.0f) , energy_(0.0f)
+    Alien() : points_(10), direction_(1.0f), velocity_(0.0f) , energy_(0.0f)
     {
         rGen_.seed(1);
-        healthComponent_ = HealthComponent(1.0f);
     }
 
     void Update() override;
@@ -33,7 +32,6 @@ protected:
 
     static int laserAvailableAmount;
 
-protected:
     int points_;
     float direction_;
     float velocity_;
