@@ -2,10 +2,7 @@
 #include <vector>
 #include <iostream>
 #include "Vector2D.h"
-//#include "World.h"
 #include "Renderer.h"
-//#include "GameObject.h"
-//#include "GameMode.h"
 #include <Windows.h>
 
 #include "GameManager.h"
@@ -39,7 +36,6 @@ void Renderer::Update(const RenderItemList& RenderList)
 
 	for (auto ri : RenderList)
 	{
-		// std::cout << "object drawn" << std::endl;
 		int x = int(ri.pos.x());
 		int y = int(ri.pos.y());
 
