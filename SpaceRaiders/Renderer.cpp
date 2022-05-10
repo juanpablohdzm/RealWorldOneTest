@@ -66,7 +66,7 @@ void Renderer::DrawCanvas()
 	if (gameMode->IsGameOver())
 		std::cout <<  "Game over your final Score is: " << gameMode->GetScore() << std::endl;
 	else
-		std::cout <<  "Score is: " << gameMode->GetScore() << std::endl;
+		std::cout << "Wave number:" << gameMode->GetWave() << " Score is: " << gameMode->GetScore() << std::endl;
 
 	for (int y = 0; y < renderBounds.y(); y++)
 	{

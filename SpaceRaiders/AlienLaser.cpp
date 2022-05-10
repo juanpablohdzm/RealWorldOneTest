@@ -12,7 +12,7 @@ void AlienLaser::Update()
     Move({0.0f,1.0f});
 
     auto world = GameManager::GetInstance();
-    std::shared_ptr<GameObject> player = world->GetPlayerObject();
+    auto player = world->GetPlayerObject();
     if (player && pos_ == player->GetPosition())
     {
         DestroyLaser();

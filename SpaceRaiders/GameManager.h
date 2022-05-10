@@ -34,8 +34,11 @@ public:
     void SetControllerInput(IInput* controller){controllerInput_ = controller;}
 
     int GetScore() const{return score_;}
-    bool IsGameOver() const {return isGameOver_;}
+    int GetWave() const {return wave_;}
+    void SetWave(int value){wave_ = value;}
 
+    bool IsGameOver() const {return isGameOver_;}
+    bool CheckIfWaveIsOver();
     void GameOver();
 
     ~GameManager(){ delete instance_;}
@@ -45,6 +48,7 @@ private:
     std::vector<std::shared_ptr<GameObject>> gameObjects_;
     IInput* controllerInput_ = nullptr;
     int score_;
+    int wave_;
     bool isGameOver_;
 
     static GameManager* instance_;

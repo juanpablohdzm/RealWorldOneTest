@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+#include "Alien.h"
 #include "Explosion.h"
 #include "GameObject.h"
 #include "PlayerShip.h"
@@ -30,6 +31,14 @@ std::shared_ptr<GameObject> GameManager::GetPlayerObject()
         return (*it);
 
     return nullptr;
+}
+
+bool GameManager::CheckIfWaveIsOver()
+{
+    return !std::any_of(gameObjects_.begin(),gameObjects_.end(),[](const std::shared_ptr<GameObject>& ptr)->bool
+    {
+       return dynamic_cast<Alien*>(ptr.get()) != nullptr; 
+    });
 }
 
 void GameManager::GameOver()
