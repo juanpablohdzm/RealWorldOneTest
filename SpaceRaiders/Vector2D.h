@@ -16,8 +16,8 @@ struct Vector2D
 
 	friend bool operator==(const Vector2D& lhs, const Vector2D& rhs)
 	{
-		return abs(lhs.x_ -rhs.x_) < 0.1f
-			&& abs(lhs.y_ - rhs.y_) < 0.1f;
+		return (int)lhs.x_ == (int)rhs.x_
+			&& abs(lhs.y_ - rhs.y_) < 0.5f;
 	}
 
 	friend bool operator!=(const Vector2D& lhs, const Vector2D& rhs)
