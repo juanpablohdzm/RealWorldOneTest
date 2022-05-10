@@ -6,7 +6,7 @@
 class PlayerShip : public GameObject
 {
 public:
-    PlayerShip() : GameObject(), amountAvailableLasers(4)
+    PlayerShip() : GameObject(),direction_(1.0),speed_(1.0), amountAvailableLasers_(4)
     {
         sprite_ = RS_Player;
     }
@@ -15,9 +15,13 @@ public:
     
     void DespawnLaser(PlayerLaser* laser);
 
+    float GetSpeed() const{return speed_;}
+    void SetSpeed(float speed){speed_ = speed;}
+
 private:
     void Fire();
 
-
-    int amountAvailableLasers;
+    float direction_;
+    float speed_;
+    int amountAvailableLasers_;
 };
