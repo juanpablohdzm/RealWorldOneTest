@@ -147,6 +147,7 @@
     <ClInclude Include="AlienLaser.h" />
     <ClInclude Include="EnhancedAlien.h" />
     <ClInclude Include="Explosion.h" />
+    <ClInclude Include="FireRateBoost.h" />
     <ClInclude Include="KeyboardInput.h" />
     <ClInclude Include="PlayField.h" />
     <ClInclude Include="GameObject.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="AlienLaser.cpp" />
     <ClCompile Include="EnhancedAlien.cpp" />
     <ClCompile Include="Explosion.cpp" />
+    <ClCompile Include="FireRateBoost.cpp" />
     <ClCompile Include="KeyboardInput.cpp" />
     <ClCompile Include="PlayField.cpp" />
     <ClCompile Include="GameObject.cpp" />

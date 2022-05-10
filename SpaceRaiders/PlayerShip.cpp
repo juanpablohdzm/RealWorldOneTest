@@ -12,11 +12,16 @@ void PlayerShip::Update()
         Move({-direction_*speed_,0.0f});
     else if (world->GetControllerInput()->Right())
         Move({direction_*speed_,0.0f});
-	
-    if (world->GetControllerInput()->Fire())
+
+    
+    if (tickCount_ % fireRate_ == 0 && world->GetControllerInput()->Fire())
     {
         Fire();
     }
+
+    tickCount_++;
+    if(tickCount_ == std::numeric_limits<int>::max())
+        tickCount_ = std::numeric_limits<int>::min();
 }
 
 void PlayerShip::DespawnLaser(PlayerLaser* laser)
