@@ -63,10 +63,6 @@ void Renderer::FillCanvas(unsigned char sprite)
 void Renderer::DrawCanvas()
 {
 	const auto gameMode = GameManager::GetInstance();
-	if (gameMode->IsGameOver())
-		std::cout <<  "Game over your final Score is: " << gameMode->GetScore() << std::endl;
-	else
-		std::cout << "Wave number:" << gameMode->GetWave() << " Score is: " << gameMode->GetScore() << std::endl;
 
 	for (int y = 0; y < renderBounds.y(); y++)
 	{
@@ -77,6 +73,10 @@ void Renderer::DrawCanvas()
 		}
 		std::cout << std::endl;
 	}
+	if (gameMode->IsGameOver())
+		std::cout <<  "Game over your final Score is: " << gameMode->GetScore() << std::endl;
+	else
+		std::cout << "Wave number:" << gameMode->GetWave() << " Score is: " << gameMode->GetScore() << std::endl;
 
 	curIdx++;
 }
