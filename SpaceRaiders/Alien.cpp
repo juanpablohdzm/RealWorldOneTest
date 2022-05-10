@@ -64,9 +64,9 @@ void Alien::SpawnPowerUp()
 {
     auto world = GameManager::GetInstance();
     std::default_random_engine rGen;
-    rGen.seed(1.0);
+    rGen.seed(std::chrono::system_clock::now().time_since_epoch().count());
     std::uniform_int_distribution<int> random(0,10);
-    if(random(rGen) <= 5)
+    if(random(rGen) <= 1)
     {
         std::uniform_int_distribution<int> powerup_choice(0,10);
         std::shared_ptr<PowerUp> powerUp = nullptr;

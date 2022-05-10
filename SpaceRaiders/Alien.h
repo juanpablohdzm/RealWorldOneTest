@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <chrono>
 #include <random>
 
 #include "AlienLaser.h"
@@ -17,7 +18,7 @@ class Alien : public GameObject
 public:
     Alien() : points_(10), direction_(1.0f), velocity_(0.0f) , energy_(0.0f)
     {
-        rGen_.seed(1);
+        rGen_.seed(std::chrono::system_clock::now().time_since_epoch().count());
     }
 
     void Update() override;
