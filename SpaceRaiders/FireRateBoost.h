@@ -3,13 +3,12 @@
 
 class FireRateBoost : public PowerUp
 {
-protected:
-
+public:
     FireRateBoost(float duration): PowerUp(duration)
     {
         sprite_ = 'F';
     }
-    
+protected:
     void Activate(PlayerShip* player) override;
     void Destroy() override;
     

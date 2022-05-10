@@ -30,7 +30,7 @@ void PowerUp::Update()
     else
     {
         auto currentTime  = std::chrono::system_clock::now();
-        auto elapsed_seconds = currentTime - activateTime_;
+        std::chrono::duration<double> elapsed_seconds = currentTime - activateTime_;
         
         if(elapsed_seconds.count() >= duration_)
         {
@@ -50,4 +50,5 @@ void PowerUp::Activate(PlayerShip* player)
     activateTime_  = std::chrono::system_clock::now();
     pos_ = Vector2D(100,100);
     player_ = player;
+    isActive_ = true;
 }

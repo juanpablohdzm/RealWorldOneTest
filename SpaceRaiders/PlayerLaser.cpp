@@ -1,8 +1,6 @@
 ﻿#include "stdafx.h"
 #include "PlayerLaser.h"
 
-#include <iostream>
-
 #include "AlienLaser.h"
 
 #include "Alien.h"
@@ -29,7 +27,10 @@ void PlayerLaser::Update()
             {
                 world->RemoveObject(it.get());
                 if(auto alien = dynamic_cast<Alien*>(it.get()))
+                {
                     world->AddScore(alien->GetWorthPoints());
+                    alien->SpawnPowerUp();
+                }
             }
             DestroyLaser();
             return;

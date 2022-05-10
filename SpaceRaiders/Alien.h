@@ -26,6 +26,7 @@ public:
     void DespawnLaser(AlienLaser* laser);
 
     int GetWorthPoints() const {return points_;}
+    void SpawnPowerUp();
 
 protected:
     virtual void SpawnLaser();

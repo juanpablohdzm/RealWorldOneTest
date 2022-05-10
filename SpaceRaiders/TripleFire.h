@@ -3,12 +3,11 @@
 
 class TripleFire : public PowerUp
 {
-protected:
-
+public:
     TripleFire(float duration): PowerUp(duration)
     {
         sprite_ = 'T';
     }
-    
+protected:
     void Activate(PlayerShip* player) override;
 };
