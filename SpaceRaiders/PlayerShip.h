@@ -20,9 +20,9 @@ public:
 
     int GetFireRate() const{return fireRate_;}
     void SetFireRate(int fire_rate){fireRate_ = fire_rate;}
+    void Fire(Vector2D direction);
 
 private:
-    void Fire();
 
     float direction_;
     float speed_;

@@ -16,7 +16,7 @@ void PlayerShip::Update()
     
     if (tickCount_ % fireRate_ == 0 && world->GetControllerInput()->Fire())
     {
-        Fire();
+        Fire(Vector2D{0.0f,-1.0f});
     }
 
     tickCount_++;
@@ -32,12 +32,12 @@ void PlayerShip::DespawnLaser(PlayerLaser* laser)
     GameManager::GetInstance()->RemoveObject(laser);
 }
 
-void PlayerShip::Fire()
+void PlayerShip::Fire(Vector2D direction)
 {
     if(amountAvailableLasers_ <= 0) return;
 
     amountAvailableLasers_--;
-    std::shared_ptr<GameObject> newLaser = std::make_shared<PlayerLaser>(this);
+    std::shared_ptr<GameObject> newLaser = std::make_shared<PlayerLaser>(this,direction);
     newLaser->SetPos(pos_);
     GameManager::GetInstance()->AddObject(newLaser);
 }

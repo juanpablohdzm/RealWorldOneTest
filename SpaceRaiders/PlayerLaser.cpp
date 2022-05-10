@@ -8,10 +8,11 @@
 #include "Alien.h"
 #include "GameManager.h"
 #include "PlayerShip.h"
+#include "PlayField.h"
 
 void PlayerLaser::Update()
 {
-    Move({0.0f,-1.0f});
+    Move(moveDirection_);
 
     auto world = GameManager::GetInstance();
     for (auto it : world->GetGameObjects())
@@ -35,7 +36,7 @@ void PlayerLaser::Update()
         }
     }
     
-    if (pos_.y() < 0)
+    if (pos_.y() < 0 || pos_.x() < 0 || pos_.x() > PlayField::GetInstance()->GetBounds().x()-1)
     {
         DestroyLaser();
         return;
