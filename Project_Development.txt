@@ -39,7 +39,9 @@ Thanks to the project structure creating the walls was a quick task, as it was w
 
 I decided to remove the Render sprite enum from the Renderer header, we don’t want to add all the object functionality inside other components that don’t need a reference to the Renderer object, and just need to define their own sprite. 
 
-I decided to remove the RendererItemList as we don’t need to create another array that contains the information that is already held inside the game objects array defined in GameManager
+I decided to remove the RendererItemList as we don’t need to create another array that contains the information that is already held inside the game objects array defined in GameManager.
+
+After profiling I noticed that the function that it was taking the most usage of CPU time was DrawCanvas, after checking it out I figured out that setCoursorPosition was called on every iteration, when the only time it has to be called is at the beginning of the drawing process. Then, after profiling again, I noticed that the cout function was the most expensive process in the app so I decided to first create a single string that contains all the rendering before sending it to the screen with an only cout call. 
 
  
 
