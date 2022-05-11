@@ -37,6 +37,10 @@ After having the base of the application made, I decided to continue with the ex
 I decided to implement the keyboard input, and fix the randomization within the whole project, at the beginning of the project all the seeds for the randomization were the same creating the same behavior every time. Now the randomization is made with the system clock as a seed. 
 Thanks to the project structure creating the walls was a quick task, as it was with the powerups. Regarding the powerups, the only thing I had to do was create the base class structure to have the same behavior for everyone (time duration, activation, deactivation).
 
+I decided to remove the Render sprite enum from the Renderer header, we don’t want to add all the object functionality inside other components that don’t need a reference to the Renderer object, and just need to define their own sprite. 
+
+I decided to remove the RendererItemList as we don’t need to create another array that contains the information that is already held inside the game objects array defined in GameManager
+
  
 
 

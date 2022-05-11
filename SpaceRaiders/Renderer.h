@@ -1,7 +1,5 @@
 #pragma once
 
-#include <vector>
-
 class Renderer
 {
 public:

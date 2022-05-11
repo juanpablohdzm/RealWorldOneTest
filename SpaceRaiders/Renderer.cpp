@@ -62,15 +62,19 @@ void Renderer::DrawCanvas()
 {
 	const auto gameMode = GameManager::GetInstance();
 
+	setCursorPosition(0, 0);
+	std::string canvas{};
+	int offset = 0;
 	for (int y = 0; y < renderBounds.y(); y++)
 	{
 		for (int x = 0; x < renderBounds.x(); x++)
 		{
-			setCursorPosition(x, y);
-			std::cout << *CurCanvas(x,y);
+			canvas.push_back(*CurCanvas(x,y));
 		}
-		std::cout << std::endl;
+		canvas.push_back('\n');
+		offset++;
 	}
+	std::cout << canvas;
 	if (gameMode->IsGameOver())
 		std::cout <<  "Game over your final Score is: " << gameMode->GetScore() << std::endl;
 	else
