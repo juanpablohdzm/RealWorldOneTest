@@ -2,11 +2,10 @@
 #include <vector>
 #include <iostream>
 #include "Vector2D.h"
-//#include "World.h"
 #include "Renderer.h"
-//#include "GameObject.h"
-//#include "GameMode.h"
 #include <Windows.h>
+
+#include "GameManager.h"
 
 void setCursorPosition(int x, int y)
 {
@@ -19,7 +18,7 @@ void setCursorPosition(int x, int y)
 Renderer::Renderer(const Vector2D& bounds)
 : renderBounds(bounds)
 {
-	canvasSize = (int)(bounds.x * bounds.y);
+	canvasSize = (int)(bounds.x() * bounds.y());
 	disp[0].canvas = new unsigned char[canvasSize];
 	disp[1].canvas = new unsigned char[canvasSize];
 }
@@ -37,13 +36,12 @@ void Renderer::Update(const RenderItemList& RenderList)
 
 	for (auto ri : RenderList)
 	{
-		// std::cout << "object drawn" << std::endl;
-		int x = int(ri.pos.x);
-		int y = int(ri.pos.y);
+		int x = int(ri.pos.x());
+		int y = int(ri.pos.y());
 
-		if (x >= 0 && x < renderBounds.x && y >= 0 && y < renderBounds.y)
+		if (x >= 0 && x < renderBounds.x() && y >= 0 && y < renderBounds.y())
 		{
-			*CurCanvas((int)ri.pos.x, + (int)ri.pos.y) = ri.sprite;
+			*CurCanvas((int)ri.pos.x(), + (int)ri.pos.y()) = ri.sprite;
 		}
 	}
 
@@ -60,22 +58,22 @@ void Renderer::FillCanvas(unsigned char sprite)
 
 void Renderer::DrawCanvas()
 {
-	//ToDo: Scoring output/tracking
-	//GameMode* gameMode = world.GetGameMode();
-	//if (gameMode)
-	//	std::cout << "Score: " << gameMode->GetScore() << std::endl;
+	const auto gameMode = GameManager::GetInstance();
 
-	for (int y = 0; y < renderBounds.y; y++)
+	for (int y = 0; y < renderBounds.y(); y++)
 	{
-		for (int x = 0; x < renderBounds.x; x++)
+		for (int x = 0; x < renderBounds.x(); x++)
 		{
 			setCursorPosition(x, y);
 			std::cout << *CurCanvas(x,y);
 		}
 		std::cout << std::endl;
 	}
+	if (gameMode->IsGameOver())
+		std::cout <<  "Game over your final Score is: " << gameMode->GetScore() << std::endl;
+	else
+		std::cout << "Wave number:" << gameMode->GetWave() << " Score is: " << gameMode->GetScore() << std::endl;
 
 	curIdx++;
-
 }
 

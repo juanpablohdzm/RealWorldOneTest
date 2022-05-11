@@ -1,30 +1,48 @@
 #pragma once
+#include <math.h>
+#include <ostream>
 
 struct Vector2D
 {
-public:
-	Vector2D() : x(0), y(0) {};
+	Vector2D() : x_(0), y_(0) {};
+	
+	Vector2D(float x, float y) : x_(x), y_(y) {};
+	
+	// Operator overloading
+	Vector2D operator + (const Vector2D& other) const {return {other.x_+x_,other.y_+y_};}
+	Vector2D operator * (const float scale) const {return {x_*scale,y_*scale};}
+	Vector2D operator / (const float scale) const {return {x_/scale,y_/scale};}
+	Vector2D operator - (const Vector2D& other)  const {return {x_-other.x_,y_-other.y_};};
 
-	Vector2D(const Vector2D& vector)
+	friend bool operator==(const Vector2D& lhs, const Vector2D& rhs)
 	{
-		x = vector.x;
-		y = vector.y;
+		return (int)lhs.x_ == (int)rhs.x_
+			&& abs(lhs.y_ - rhs.y_) < 0.5f;
 	}
 
-	Vector2D(float x, float y) : x(x), y(y) {};
+	friend bool operator!=(const Vector2D& lhs, const Vector2D& rhs)
+	{
+		return !(lhs == rhs);
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, const Vector2D& obj)
+	{
+		return os
+			<< "x_: " << obj.x_
+			<< " y_: " << obj.y_;
+	}
+
+	float Length() const { return sqrt(x_*x_ + y_*y_);}
+
+	float x() const{return x_;}
+	float y() const{return y_;}
+
+	void set_x(float x){x_ = x;}
+	void set_y(float y){y_ = y;}
+
 	~Vector2D() {}
-
-	bool IntCmp(const Vector2D& vec) { return int(x) == int(vec.x) && int(y) == int(vec.y); }
-	// Operator overloading
-	Vector2D operator + (const Vector2D& other);
-	Vector2D operator * (const Vector2D& other);
-	Vector2D operator * (const float other);
-	Vector2D operator / (const float other);
-	Vector2D operator - (const Vector2D& other);
-
-	float length();
-
-	float x;
-	float y;
+private:
+	float x_;
+	float y_;
 };
 
