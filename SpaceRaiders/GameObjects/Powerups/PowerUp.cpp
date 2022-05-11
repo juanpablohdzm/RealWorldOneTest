@@ -1,10 +1,10 @@
 ﻿#include "stdafx.h"
 #include "PowerUp.h"
 
-#include "PlayerShip.h"
+#include "../Player/PlayerShip.h"
 
-#include "GameManager.h"
-#include "PlayField.h"
+#include "../../GameManager.h"
+#include "../../PlayField.h"
 
 void PowerUp::Update()
 {

@@ -2,7 +2,7 @@
 #include "RegularAlien.h"
 
 #include "EnhancedAlien.h"
-#include "GameManager.h"
+#include "../../GameManager.h"
 
 
 void RegularAlien::Update()

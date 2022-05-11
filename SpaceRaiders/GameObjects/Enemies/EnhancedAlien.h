@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "Alien.h"
-#include "Renderer.h"
+#include "../../Renderer.h"
 
 class EnhancedAlien : public Alien
 {

@@ -1,13 +1,12 @@
 ﻿#include "stdafx.h"
 #include "Alien.h"
 
-#include "AlienLaser.h"
-#include "Explosion.h"
-#include "FireRateBoost.h"
-#include "GameManager.h"
-#include "PlayField.h"
-#include "SpeedBoost.h"
-#include "TripleFire.h"
+#include "../Weapons/AlienLaser.h"
+#include "../Powerups/FireRateBoost.h"
+#include "../../GameManager.h"
+#include "../../PlayField.h"
+#include "../Powerups/SpeedBoost.h"
+#include "../Powerups/TripleFire.h"
 
 
 class PowerUp;

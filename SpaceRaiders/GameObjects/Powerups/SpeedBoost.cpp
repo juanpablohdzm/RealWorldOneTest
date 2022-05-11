@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "SpeedBoost.h"
 
-#include "PlayerShip.h"
+#include "../Player/PlayerShip.h"
 
 void SpeedBoost::Activate(PlayerShip* player)
 {

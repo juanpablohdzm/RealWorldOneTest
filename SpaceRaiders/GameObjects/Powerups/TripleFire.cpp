@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "TripleFire.h"
 
-#include "PlayerShip.h"
+#include "../Player/PlayerShip.h"
 
 void TripleFire::Activate(PlayerShip* player)
 {

@@ -1,9 +1,9 @@
 ﻿#include "stdafx.h"
 #include "AlienLaser.h"
 
-#include "Alien.h"
-#include "GameManager.h"
-#include "PlayField.h"
+#include "../Enemies/Alien.h"
+#include "../../GameManager.h"
+#include "../../PlayField.h"
 
 
 

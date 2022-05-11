@@ -1,6 +1,6 @@
 ﻿#include "stdafx.h"
 #include "Explosion.h"
-#include "GameManager.h"
+#include "../../GameManager.h"
 
 void Explosion::Update()
 {

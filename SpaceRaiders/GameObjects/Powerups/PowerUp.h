@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <chrono>
 
-#include "GameObject.h"
+#include "../GameObject.h"
 
 class PowerUp : public GameObject
 {

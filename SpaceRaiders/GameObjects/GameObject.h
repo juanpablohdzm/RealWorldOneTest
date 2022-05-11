@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <string>
 
-#include "HealthComponent.h"
-#include "Vector2D.h"
+#include "../Components/HealthComponent.h"
+#include "../Vector2D.h"
 
 class GameManager;
 

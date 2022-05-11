@@ -1,7 +1,6 @@
 ﻿#include "stdafx.h"
 #include "KeyboardInput.h"
 
-#include <iostream>
 #include <Windows.h>
 
 bool KeyboardInput::Left()

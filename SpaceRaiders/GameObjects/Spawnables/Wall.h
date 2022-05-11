@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "GameObject.h"
-#include "HealthComponent.h"
+#include "../GameObject.h"
+#include "../../Components/HealthComponent.h"
 
 class Wall : public GameObject
 {

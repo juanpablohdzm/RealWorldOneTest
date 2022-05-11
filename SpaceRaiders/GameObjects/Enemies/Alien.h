@@ -2,9 +2,8 @@
 #include <chrono>
 #include <random>
 
-#include "AlienLaser.h"
-#include "GameObject.h"
-#include "HealthComponent.h"
+#include "../Weapons/AlienLaser.h"
+#include "../GameObject.h"
 
 
 #define MAX_UPDATE_RATE  0.01f

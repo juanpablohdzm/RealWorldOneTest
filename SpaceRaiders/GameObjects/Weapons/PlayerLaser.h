@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "Laser.h"
-#include "Renderer.h"
+#include "../../Renderer.h"
 
 class PlayerShip;
 

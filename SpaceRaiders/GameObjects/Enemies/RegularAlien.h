@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "Alien.h"
-#include "Renderer.h"
+#include "../../Renderer.h"
 
 class RegularAlien : public Alien
 {

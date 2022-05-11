@@ -3,8 +3,8 @@
 
 #include <memory>
 
-#include "Explosion.h"
-#include "GameManager.h"
+#include "../Spawnables/Explosion.h"
+#include "../../GameManager.h"
 
 void Laser::Collision(GameObject* obj)
 {

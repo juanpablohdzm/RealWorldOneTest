@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include "GameObject.h"
-#include "Renderer.h"
+#include "../GameObject.h"
+#include "../../Renderer.h"
 
 class Explosion : public GameObject
 {

@@ -3,10 +3,10 @@
 
 #include <iostream>
 
-#include "Alien.h"
-#include "Explosion.h"
-#include "GameObject.h"
-#include "PlayerShip.h"
+#include "./GameObjects/Enemies/Alien.h"
+#include "./GameObjects/Spawnables/Explosion.h"
+#include "./GameObjects/GameObject.h"
+#include "./GameObjects/Player/PlayerShip.h"
 
 void GameManager::Update()
 {

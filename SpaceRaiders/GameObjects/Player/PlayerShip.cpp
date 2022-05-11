@@ -1,9 +1,9 @@
 ﻿#include "stdafx.h"
 #include "PlayerShip.h"
 
-#include "IInput.h"
-#include "PlayerLaser.h"
-#include "GameManager.h"
+#include "../../Input/IInput.h"
+#include "../Weapons/PlayerLaser.h"
+#include "../../GameManager.h"
 
 void PlayerShip::Update()
 {

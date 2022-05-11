@@ -1,7 +1,7 @@
 ﻿#pragma once
-#include "GameObject.h"
+#include "../GameObject.h"
 #include "Laser.h"
-#include "Renderer.h"
+#include "../../Renderer.h"
 
 class Alien;
 

@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "FireRateBoost.h"
 
-#include "PlayerShip.h"
+#include "../Player/PlayerShip.h"
 
 void FireRateBoost::Activate(PlayerShip* player)
 {

@@ -3,10 +3,10 @@
 
 #include "AlienLaser.h"
 
-#include "Alien.h"
-#include "GameManager.h"
-#include "PlayerShip.h"
-#include "PlayField.h"
+#include "../Enemies/Alien.h"
+#include "../../GameManager.h"
+#include "../Player/PlayerShip.h"
+#include "../../PlayField.h"
 
 void PlayerLaser::Update()
 {
