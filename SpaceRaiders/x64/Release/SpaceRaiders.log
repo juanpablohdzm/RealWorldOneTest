@@ -1,0 +1,113 @@
+﻿  stdafx.cpp
+  HealthComponent.cpp
+  Alien.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.cpp(66,72): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\xutility(158,77): warning C4244: 'argument': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=double
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2029): message : see reference to function template instantiation 'void std::_Construct_in_place<_Ty,double>(_Ty &,double &&) noexcept(false)' being compiled
+          with
+          [
+              _Ty=SpeedBoost
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<double>(double &&)' being compiled
+          with
+          [
+              _Ty=SpeedBoost
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(2748): message : see reference to function template instantiation 'std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<double>(double &&)' being compiled
+          with
+          [
+              _Ty=SpeedBoost
+          ]
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.cpp(75): message : see reference to function template instantiation 'std::shared_ptr<SpeedBoost> std::make_shared<SpeedBoost,double>(double &&)' being compiled
+  EnhancedAlien.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  RegularAlien.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  GameObject.cpp
+  PlayerShip.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  FireRateBoost.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Powerups\FireRateBoost.cpp(9,25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Powerups\FireRateBoost.cpp(17,30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  PowerUp.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  SpeedBoost.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  TripleFire.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Explosion.cpp
+  Wall.cpp
+  AlienLaser.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  Laser.cpp
+  PlayerLaser.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  KeyboardInput.cpp
+  RndInput.cpp
+  Generating Code...
+  PlayField.cpp
+  GameManager.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Renderer.cpp
+  SpaceRaiders.cpp
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Enemies\Alien.h(20,77): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\GameObjects\Player\PlayerShip.h(9,97): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+E:\Work\realworld_one_Unreal_Engineer_Test\SpaceRaiders\SpaceRaiders.cpp(66,69): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+HealthComponent.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+PlayField.obj : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in Alien.obj
+PlayField.obj : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in Alien.obj
+GameManager.obj : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in Alien.obj
+GameManager.obj : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in Alien.obj
+Renderer.obj : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in Alien.obj
+Renderer.obj : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in Alien.obj
+SpaceRaiders.obj : error LNK2038: mismatch detected for '_ITERATOR_DEBUG_LEVEL': value '0' doesn't match value '2' in Alien.obj
+SpaceRaiders.obj : error LNK2038: mismatch detected for 'RuntimeLibrary': value 'MD_DynamicRelease' doesn't match value 'MDd_DynamicDebug' in Alien.obj
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+RndInput.obj : error LNK2011: precompiled object not linked in; image may not run
+    Hint on symbols that are defined and could potentially match:
+      __@@_PchSym_@00@UdlipUivzodliowPlmvPfmivzoPvmtrmvviPgvhgUhkzxvizrwvihUcGEUivovzhvUhgwzucOlyq@4B2008FD98C1DD4
+E:\Work\realworld_one_Unreal_Engineer_Test\x64\Release\SpaceRaiders.exe : fatal error LNK1120: 1 unresolved externals

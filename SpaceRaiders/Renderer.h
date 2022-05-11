@@ -2,25 +2,6 @@
 
 #include <vector>
 
-struct RenderItem
-{
-	RenderItem(const Vector2D& iPos, char iSprite) : pos(iPos), sprite(iSprite) {};
-	Vector2D pos;
-	char sprite;
-};
-typedef std::vector<RenderItem> RenderItemList;
-
-enum RaiderSprites
-{
-	RS_BackgroundTile = 0xB0,
-	RS_Player = 'P',
-	RS_Alien = 'A',
-	RS_BetterAlien = 'B',
-	RS_PlayerLaser = 0xBA,
-	RS_AlienLaser = '|',
-	RS_Explosion = '*'
-};
-
 class Renderer
 {
 public:
@@ -28,7 +9,7 @@ public:
 	~Renderer();
 
 	// Draws all game objects after clearing filling the Canvas with _ symbol
-	void Update(const RenderItemList& renderList);
+	void Update();
 
 private:
 	Vector2D renderBounds;

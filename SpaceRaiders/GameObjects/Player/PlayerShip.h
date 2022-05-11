@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "../GameObject.h"
+#include "../../RaiderSprites.h"
 #include "../Weapons/PlayerLaser.h"
-#include "../../Renderer.h"
 
 class PlayerShip : public GameObject
 {

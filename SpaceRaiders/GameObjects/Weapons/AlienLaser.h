@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "../GameObject.h"
 #include "Laser.h"
-#include "../../Renderer.h"
+#include "../../RaiderSprites.h"
 
 class Alien;
 

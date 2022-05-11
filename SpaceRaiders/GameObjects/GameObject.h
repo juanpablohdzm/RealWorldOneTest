@@ -1,6 +1,6 @@
 ﻿#pragma once
-#include <string>
 
+#include "../RaiderSprites.h"
 #include "../Components/HealthComponent.h"
 #include "../Vector2D.h"
 
@@ -9,7 +9,7 @@ class GameManager;
 class GameObject
 {
 public:
-    GameObject() : sprite_('d'), pos_(0,0), healthComponent_(1.0){}
+    GameObject() : sprite_(RS_Default), pos_(0,0), healthComponent_(1.0){}
     
     virtual ~GameObject() = default;
     virtual void Update()  = 0;

@@ -6,6 +6,7 @@
 #include <Windows.h>
 
 #include "GameManager.h"
+#include "GameObjects/GameObject.h"
 
 void setCursorPosition(int x, int y)
 {
@@ -30,18 +31,19 @@ Renderer::~Renderer()
 	delete[] disp[1].canvas;
 }
 
-void Renderer::Update(const RenderItemList& RenderList)
+void Renderer::Update()
 {
 	FillCanvas(RS_BackgroundTile);
 
-	for (auto ri : RenderList)
+	const auto gameManager = GameManager::GetInstance();
+	for (const auto& game_object : gameManager->GetGameObjects())
 	{
-		int x = int(ri.pos.x());
-		int y = int(ri.pos.y());
+		int x = int(game_object->GetPosition().x());
+		int y = int(game_object->GetPosition().y());
 
 		if (x >= 0 && x < renderBounds.x() && y >= 0 && y < renderBounds.y())
 		{
-			*CurCanvas((int)ri.pos.x(), + (int)ri.pos.y()) = ri.sprite;
+			*CurCanvas(x, y) = game_object->GetSprite();
 		}
 	}
 

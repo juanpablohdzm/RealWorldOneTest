@@ -1,0 +1,43 @@
+Juan Pablo Hernandez Mosti
+Project Development
+Note: All the development process step by step is inside a local git within the project folder. 
+
+The first step that I took was recognition, get acquaintance with the project structure, implementation, classes, dependencies, etc. 
+The project came in a state where I was unable to run the implementation as it is due to a memory exception because of a bad use of memory management of the standard vector library. The problem happened when the main loop called the Update function of the gameobjects, which in their implementation created or destroyed other gameobjects, which caused the Vector memory to increase or moved to another blocked of memory, causing undefinied behavior and memory leak of the pointers allocated inside the Vector. 
+As first step to test the project I created a copy of the gameobject vector which it will become the new vector to run through the main loop, that way we don’t have a memory mishandled during the run of the application. 
+
+After making the game run, and see in what state the project was (e.g. what has been implemented and what is missing), I decided to refactor the existing code in classes and separated files. 
+I decided to remove from the PlayField class  and pass to GameManager  all the game logic of the application (e.g. hold the reference of the active gameobjects, the controller input, the score), making the playfield class responsible of holding the data corresponding of the play board (in this case the size of the game). 
+
+The game  manager is an object that should only be one through the entire application I decided to use the singleton pattern, that way it is callable from every part of the project without having a hard reference that has to be passed down. 
+As the game manager I decided to the same with playfield, both of this object use raw points as both of the instances are something created static, and can only be spawned by the get instance function that is also static. The memory is released when the application is closed. 
+A safe practice I decided to implement, early on, the use of modern C++ and use smart pointers instead of raw pointers, that way we avoid any memory leak that could cause an extensive use of the system memory. 
+After having the current project to work with smart pointers, I decided to refactor the project. Created hierarchy classes: 
+
+1. GameObject
+a. PlayerShip
+b. Alien
+i. Regular alien
+ii. Enhanced alien
+c. Lase
+i. AlienLaser
+ii. PlayerLaser
+d. Powerup
+i. FireRateBoost
+ii. TripleFire
+iii. SpeedBoost
+e. Explosion
+f. Wall
+2. Input (interface)
+a. Random Input
+b. Keyboard Input
+
+After having the base of the application made, I decided to continue with the extensions
+
+I decided to implement the keyboard input, and fix the randomization within the whole project, at the beginning of the project all the seeds for the randomization were the same creating the same behavior every time. Now the randomization is made with the system clock as a seed. 
+Thanks to the project structure creating the walls was a quick task, as it was with the powerups. Regarding the powerups, the only thing I had to do was create the base class structure to have the same behavior for everyone (time duration, activation, deactivation).
+
+ 
+
+
+
